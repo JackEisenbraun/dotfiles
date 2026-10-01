@@ -1,0 +1,261 @@
+/* ═══════════════════════════════════════════════════════════════
+   Waybar styles — converted from YASB styles.css
+   Color palette: dark teal bg (#041c1a), accent #0cc087, hover #89dceb
+   Font: JetBrainsMono Nerd Font (install: nerd-fonts-jetbrains-mono)
+═══════════════════════════════════════════════════════════════ */
+
+* {
+    font-size: 15px;
+    color: #cdd6f4;
+    font-weight: 600;
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NFP", monospace;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+/* ─── BAR ─────────────────────────────────────────────────────────────────── */
+window#waybar {
+    background: #1e1e2e;
+    border-bottom: #11111b;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* ─── MODULES (generic widget) ────────────────────────────────────────────── */
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 2px 4px;
+}
+
+/* Every module gets the same base padding YASB .widget had */
+#custom-layout,
+#workspaces,
+#window,
+#custom-power-menu,
+#clock,
+#custom-launchpad,
+#custom-wallpaper,
+#custom-cava,
+#mpris,
+#custom-gpu,
+#cpu,
+#pulseaudio,
+#custom-pomodoro {
+    padding: 0 10px;
+    margin: 0 2px;
+}
+
+/* Hover accent — matches .widget:hover */
+#custom-layout:hover,
+#window:hover,
+#custom-power-menu:hover,
+#clock:hover,
+#custom-launchpad:hover,
+#custom-wallpaper:hover,
+#mpris:hover,
+#custom-gpu:hover,
+#cpu:hover,
+#pulseaudio:hover,
+#custom-pomodoro:hover {
+    color: #89dceb;
+}
+
+/* ─── WORKSPACES ──────────────────────────────────────────────────────────── */
+#workspaces {
+    margin: 0 4px;
+}
+
+#workspaces button {
+    margin: 4px 0;
+    padding: 0 4px;
+    color: @color03;
+}
+
+#workspaces button.visible {
+}
+
+#workspaces button.active {
+    border-radius: 4px;
+    color: @color06;
+    background-color: @color02;
+}
+
+#workspaces button.urgent {
+    color: rgba(238, 46, 36, 1);
+}
+
+/* 🖱️ Hovering over workspace buttons */
+#workspaces button:hover {
+    color: #89dceb;
+    background: rgba(137, 220, 235, 0.08);
+}
+/* ─── ACTIVE WINDOW ───────────────────────────────────────────────────────── */
+#window {
+    color: #cdd6f4;
+    font-size: 13px;
+}
+
+/* ─── CLOCK ───────────────────────────────────────────────────────────────── */
+#clock {
+    background: rgba(8, 20, 20, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 0 8px;
+    color: #cdd6f4;
+}
+
+/* ─── CPU ─────────────────────────────────────────────────────────────────── */
+#cpu {
+    color: #cdd6f4;
+    font-size: 13px;
+    padding: 0 8px;
+}
+
+/* Threshold coloring — set via Waybar format-icons states or custom script classes */
+#cpu.low {
+    color: #a6e3a1;
+}
+#cpu.medium {
+    color: #f9e2af;
+}
+#cpu.high {
+    color: #fab387;
+}
+#cpu.critical {
+    color: #f38ba8;
+}
+
+/* ─── PULSEAUDIO / VOLUME ─────────────────────────────────────────────────── */
+#pulseaudio {
+    color: #cdd6f4;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+/* ─── MPRIS / MEDIA ───────────────────────────────────────────────────────── */
+#mpris {
+    background: rgba(8, 20, 20, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: #cdd6f4;
+    min-width: 150px;
+}
+
+#mpris.paused {
+    color: #6c7086;
+}
+
+#mpris.stopped {
+    /* hide when nothing playing — widget shows "" anyway */
+    color: transparent;
+    border-color: transparent;
+    background: transparent;
+}
+
+/* ─── GPU ─────────────────────────────────────────────────────────────────── */
+#custom-gpu {
+    color: #cdd6f4;
+    font-size: 13px;
+}
+
+#custom-gpu.low {
+    color: #a6e3a1;
+}
+#custom-gpu.medium {
+    color: #f9e2af;
+}
+#custom-gpu.high {
+    color: #fab387;
+}
+#custom-gpu.critical {
+    color: #f38ba8;
+}
+
+/* ─── CAVA ────────────────────────────────────────────────────────────────── */
+#custom-cava {
+    color: #89b4fa;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 0 6px;
+}
+
+/* ─── LAUNCHPAD ───────────────────────────────────────────────────────────── */
+#custom-launchpad {
+    background: rgba(8, 20, 20, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: #0cc087;
+    font-size: 16px;
+}
+
+#custom-launchpad:hover {
+    color: #89dceb;
+}
+
+/* ─── WALLPAPER ───────────────────────────────────────────────────────────── */
+#custom-wallpaper {
+    font-size: 16px;
+    color: #0cc087;
+}
+
+#custom-wallpaper:hover {
+    color: #89dceb;
+}
+
+/* ─── POWER MENU ──────────────────────────────────────────────────────────── */
+#custom-power-menu {
+    font-size: 16px;
+    color: #0cc087;
+}
+
+#custom-power-menu:hover {
+    color: #f38ba8;
+}
+
+/* ─── LAYOUT ──────────────────────────────────────────────────────────────── */
+#custom-layout {
+    color: #cdd6f4;
+    font-size: 14px;
+}
+
+/* ─── POMODORO ────────────────────────────────────────────────────────────── */
+#custom-pomodoro {
+    color: #0cc087;
+    font-size: 14px;
+}
+
+#custom-pomodoro.break {
+    color: #a6e3a1;
+}
+
+#custom-pomodoro.paused {
+    color: #6c7086;
+}
+
+/* ─── TOOLTIP (global) ────────────────────────────────────────────────────── */
+tooltip {
+    background: rgba(10, 16, 18, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 5px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+    font-size: 13px;
+    padding: 4px 8px;
+}
+/*---Battery --- */
+#battery {
+    background: rgba(8, 20, 20, 0.005);
+    color: #0cc087;
+    font-size: 16px;
+    margin-right: 8px;
+}

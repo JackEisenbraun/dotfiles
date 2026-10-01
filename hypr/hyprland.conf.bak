@@ -1,0 +1,78 @@
+# This config is a STUB! This should never be generated.
+# Use the default lua config from https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua
+
+
+
+$mainMod = SUPER
+$terminal = kitty
+$fileManager = dolphin
+$menu = hyprlauncher
+
+
+# Startup apps
+exec-once = waybar 
+exec-once = wl-paste --type text --watch cliphist store
+exec-once = wl-paste --type image --watch cliphist store
+
+
+# Key binds
+
+#Hyprland
+bind = $mainMod, T, exec, $terminal
+bind = $mainMod, Q, killactive,
+bind = $mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit
+bind = $mainMod, E, exec, $fileManager
+bind = $mainMod SHIFT, F, togglefloating,
+bind = $mainMod, F, fullscreen,
+bind = $mainMod, R, exec, $menu
+bind = $mainMod, L, exec, /home/jack/.local/share/quickshell-lockscreen/lock.sh
+bind = $mainMod, V, exec, caelestia clipboard
+
+
+# Workspace Navigator
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+
+# Move window to workspace
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+
+# Move window around screen
+bind = $mainMod, left,  movewindow, l
+bind = $mainMod, right, movewindow, r
+bind = $mainMod, up,    movewindow, u
+bind = $mainMod, down,  movewindow, d
+
+# Move focus window
+bind = SUPER_ALT, left,  movefocus, l
+bind = SUPER_ALT, right, movefocus, r
+bind = SUPER_ALT, up,    movefocus, u
+bind = SUPER_ALT, down,  movefocus, d
+
+# Walker App Launcher
+bind = $mainMod, Space, global, caelestia:launcher
+
+# Cliphist things
+bind = $mainMod, C, exec, cliphist list | walker --dmenu | cliphist decode | wl-copy
+
+
+# HyprMod managed settings
+source = /home/jack/.config/hypr/hyprland-gui.conf
+
+
+input {
+    kb_options = caps:escape
+
+     touchpad {
+           natural_scroll = yes
+           disable_while_typing = yes
+	   scroll_factor = 0.2
+	}
+
+}
